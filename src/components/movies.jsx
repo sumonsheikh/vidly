@@ -9,8 +9,12 @@ class Movies extends Component {
           this.setState({movies});
       };
     render() { 
+        if(this.state.movies.length===0)
+         return <p>There is no movie in the database</p>
         return( 
-            <table className="table">
+            <React.Fragment>
+                <p>Showing {this.state.movies.length} movies</p>
+                <table className="table">
                 <thead>
                     <tr>
                         <td>Title</td>
@@ -32,6 +36,7 @@ class Movies extends Component {
                     ))}
                 </tbody>
             </table>
+            </React.Fragment>
         );
     }
 }
