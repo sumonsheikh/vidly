@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Like from './common/like';
 import {getMovies} from '../services/fakeMovieServices';
 class Movies extends Component {
     state = {
@@ -17,11 +18,12 @@ class Movies extends Component {
                 <table className="table">
                 <thead>
                     <tr>
-                        <td>Title</td>
-                        <td>Genre</td>
-                        <td>Stock</td>
-                        <td>Rate</td>
-                        <td></td>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Stock</th>
+                        <th>Rate</th>
+                        <th></th>
+                        <th/>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,6 +33,9 @@ class Movies extends Component {
                             <td>{movie.genre.name}</td>
                             <td>{movie.numberInStock}</td>
                             <td>{movie.dailyRentalRate}</td>
+                            <td>
+                                <Like/>
+                            </td>
                             <td><button onClick={()=>this.handaleDelete(movie)} className="btn btn-danger btn-sm">Delete</button></td>
                         </tr>
                     ))}
